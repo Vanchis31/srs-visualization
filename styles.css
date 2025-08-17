@@ -1,30 +1,70 @@
+/* Tipografía ejecutiva */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  line-height: 1.5;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
 }
 
-h1 {
-  margin-bottom: 0.2em;
+/* Navbar */
+.navbar {
+  background: #003366;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-p {
-  font-size: 14px;
-  margin-top: 0;
+.nav-title {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
+/* Contenido principal */
+.content {
+  padding: 2rem;
+}
+
+/* Encabezados */
+h1, h2 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+/* Tabla ejecutiva */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1em;
-}
-
-th, td {
-  border: 1px solid #333;
-  padding: 6px 10px;
-  text-align: left;
+  margin-top: 1.5rem;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 th {
-  background-color: #f2f2f2;
+  background: #0055a5;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background: #f4f8fc;
+}
+
+tr:hover {
+  background: #eaf2fb;
+}
+
+/* Párrafos */
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
