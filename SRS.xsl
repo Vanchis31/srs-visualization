@@ -16,7 +16,7 @@
   <xsl:template match="/reqif:REQ-IF">
     <html>
       <head>
-      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="styles.css"></link>
         <title>
           <xsl:value-of select="reqif:THE-HEADER/reqif:REQ-IF-HEADER/reqif:TITLE"/>
         </title>
@@ -65,4 +65,5 @@
   </xsl:template>
 
 </xsl:stylesheet>
+
 
