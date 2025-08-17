@@ -16,55 +16,56 @@
   <xsl:template match="/reqif:REQ-IF">
     <html>
       <head>
-      <link rel="stylesheet" href="styles.css"/>
+        <meta charset="UTF-8"/>
         <title>
           <xsl:value-of select="reqif:THE-HEADER/reqif:REQ-IF-HEADER/reqif:TITLE"/>
         </title>
+        <link rel="stylesheet" href="styles.css"/>
       </head>
       <body>
 
-        <!-- Mostrar SPEC-TYPES -->
-       <h1>Documento de Requerimientos</h1>
-    <p>
-      La siguiente tabla muestra los requerimientos extraídos del archivo REQIF.
-      Se incluyen su identificador, título o tipo, y la descripción asociada.
-      Las filas sin descripción visible han sido omitidas automáticamente.
-    </p>
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+          <div class="nav-title">📑 Documento de Requerimientos</div>
+        </nav>
 
-        <!-- Mostrar SPEC-OBJECTS -->
-        <h2>Objetos de especificación</h2>
-        <table>
-          <tr>
-            <th>Identificador</th>
-            <th>Título / Tipo</th>
-            <th>Descripción</th>
-          </tr>
-          <xsl:for-each select="reqif:CORE-CONTENT/reqif:REQ-IF-CONTENT/reqif:SPEC-OBJECTS/reqif:SPEC-OBJECT">
+        <main class="content">
+          <h1>Resumen</h1>
+          <p>
+            La siguiente tabla muestra los requerimientos extraídos del archivo REQIF.
+            Se incluyen su identificador, título/tipo y la descripción asociada.
+          </p>
+
+          <!-- Mostrar SPEC-OBJECTS -->
+          <h2>Objetos de Especificación</h2>
+          <table>
             <tr>
-              <!-- Aquí usamos el valor del atributo "SRS-#" -->
-              <td>
-                <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[1]/@THE-VALUE"/>
-              </td>
-              <td>
-                <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[2]/@THE-VALUE"/>
-              </td>
-              <td>
-                <xsl:for-each select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-XHTML">
-                  <div>
-                    <xsl:copy-of select="reqif:THE-VALUE/*"/>
-                  </div>
-                </xsl:for-each>
-              </td>
+              <th>Identificador</th>
+              <th>Título / Tipo</th>
+              <th>Descripción</th>
             </tr>
-          </xsl:for-each>
-        </table>
+            <xsl:for-each select="reqif:CORE-CONTENT/reqif:REQ-IF-CONTENT/reqif:SPEC-OBJECTS/reqif:SPEC-OBJECT">
+              <tr>
+                <td>
+                  <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[1]/@THE-VALUE"/>
+                </td>
+                <td>
+                  <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[2]/@THE-VALUE"/>
+                </td>
+                <td>
+                  <xsl:for-each select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-XHTML">
+                    <div>
+                      <xsl:copy-of select="reqif:THE-VALUE/*"/>
+                    </div>
+                  </xsl:for-each>
+                </td>
+              </tr>
+            </xsl:for-each>
+          </table>
+        </main>
 
-      </body>
         <script src="script.js"></script>
+      </body>
     </html>
   </xsl:template>
-
 </xsl:stylesheet>
-
-
-
