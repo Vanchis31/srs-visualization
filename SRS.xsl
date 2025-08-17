@@ -15,37 +15,43 @@
   <!-- Plantilla para el nodo principal -->
   <xsl:template match="/reqif:REQ-IF">
     <html>
-      <head>
-        <title>
-          <xsl:value-of select="reqif:THE-HEADER/reqif:REQ-IF-HEADER/reqif:TITLE"/>
-        </title>
-        <style>
-          body { font-family: Arial, sans-serif; margin: 20px; }
-          h1 { color: darkblue; }
-          table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-          th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
-          th { background-color: #f2f2f2; }
-        </style>
-      </head>
-      <body>
-        <h1>
-          <xsl:value-of select="reqif:THE-HEADER/reqif:REQ-IF-HEADER/reqif:TITLE"/>
-        </h1>
-
-        <!-- Mostrar SPEC-TYPES -->
-        <h2>Tipos de especificación</h2>
-        <table>
-          <tr>
-            <th>Nombre</th>
-            <th>Identificador</th>
-          </tr>
-          <xsl:for-each select="reqif:CORE-CONTENT/reqif:REQ-IF-CONTENT/reqif:SPEC-TYPES/reqif:SPECIFICATION-TYPE">
-            <tr>
-              <td><xsl:value-of select="@LONG-NAME"/></td>
-              <td><xsl:value-of select="@IDENTIFIER"/></td>
-            </tr>
-          </xsl:for-each>
-        </table>
+ <html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Documento de Requerimientos</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1em;
+      }
+      th, td {
+        border: 1px solid #333;
+        padding: 6px 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      h1 {
+        font-family: Arial, sans-serif;
+        margin-bottom: 0.2em;
+      }
+      p {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header y explicación -->
+    <h1>Documento de Requerimientos</h1>
+    <p>
+      La siguiente tabla muestra los requerimientos extraídos del archivo REQIF.
+      Se incluyen su identificador, título o tipo, y la descripción asociada.
+      Las filas sin descripción visible han sido omitidas automáticamente.
+    </p>
 
         <!-- Mostrar SPEC-OBJECTS -->
         <h2>Objetos de especificación</h2>
