@@ -16,33 +16,10 @@
   <xsl:template match="/reqif:REQ-IF">
     <html>
       <head>
+      <link rel="stylesheet" href="styles.css">
         <title>
           <xsl:value-of select="reqif:THE-HEADER/reqif:REQ-IF-HEADER/reqif:TITLE"/>
         </title>
-        <style>
-             table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1em;
-      }
-      th, td {
-        border: 1px solid #333;
-        padding: 6px 10px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-      h1 {
-        font-family: Arial, sans-serif;
-        margin-bottom: 0.2em;
-      }
-      p {
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        margin-top: 0;
-      }
-        </style>
       </head>
       <body>
 
