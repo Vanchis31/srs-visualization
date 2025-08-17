@@ -23,7 +23,7 @@
           body { font-family: Arial, sans-serif; margin: 20px; }
           h1 { color: darkblue; }
           table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-          th, td { border: 1px solid #ddd; padding: 8px; }
+          th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
           th { background-color: #f2f2f2; }
         </style>
       </head>
@@ -52,18 +52,17 @@
         <table>
           <tr>
             <th>Identificador</th>
-            <th>Tipo</th>
-            <th>Valores</th>
+            <th>Título / Tipo</th>
+            <th>Descripción</th>
           </tr>
           <xsl:for-each select="reqif:CORE-CONTENT/reqif:REQ-IF-CONTENT/reqif:SPEC-OBJECTS/reqif:SPEC-OBJECT">
             <tr>
-              <td><xsl:value-of select="@IDENTIFIER"/></td>
+              <!-- Aquí usamos el valor del atributo "SRS-#" -->
               <td>
-                <xsl:for-each select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING">
-                  <div>
-                    <strong><xsl:value-of select="@THE-VALUE"/></strong>
-                  </div>
-                </xsl:for-each>
+                <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[1]/@THE-VALUE"/>
+              </td>
+              <td>
+                <xsl:value-of select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-STRING[2]/@THE-VALUE"/>
               </td>
               <td>
                 <xsl:for-each select="reqif:VALUES/reqif:ATTRIBUTE-VALUE-XHTML">
